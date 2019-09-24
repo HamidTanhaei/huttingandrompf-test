@@ -7,6 +7,10 @@ import {store, persistor} from './redux/store';
 import RoutesConnectedToRedux from './Routes';
 
 
+// css
+import 'antd/dist/antd.css';
+import './theme/global.scss';
+
 function App() {
   return (
     <Provider store={store}>
