@@ -1,32 +1,20 @@
 import React from 'react';
-import { Table } from 'antd';
+import { Table, message } from 'antd';
 import {connect} from 'react-redux';
 import {oneToOneJoinData} from '../../../utils/joinRestData';
 import {getData} from '../../../services/api';
 import {setText} from '../../../redux/filter/action';
 
-const columns = [
-  {
-    title: 'Art',
-    dataIndex: 'id',
-    render: (record, row) => row.element.type,
-    width: '10%',
-  },
-  {
-    title: 'Name',
-    dataIndex: 'element',
-    render: record => record.attributes.label,
-    sorter: true,
-    width: '20%',
-  }
-];
-
 class FeaturesTable extends React.Component {
-  state = {
-    data: [],
-    pagination: {},
-    loading: false,
-    totalEntries: 0
+  constructor(props){
+    super(props);
+    this.state = {
+      data: [],
+      pagination: {},
+      loading: false,
+      totalEntries: 0,
+      sort: ''
+    };
   };
 
   componentDidMount() {
@@ -36,6 +24,7 @@ class FeaturesTable extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    // on Search
     if (prevProps.searchText !== this.props.searchText) {
       this.searchForText();
     }
@@ -44,14 +33,30 @@ class FeaturesTable extends React.Component {
   searchForText = () => {
     //reset component pagination
     this.setState({
-      pagination: {current: 1}
+      pagination: {current: 1},
+      sort: ''
     }, () => {
       // fetch data by searched text
       this.fetch({
         search: this.props.searchText,
         'page[number]': this.state.pagination.current
-      })
+      });
     });
+  };
+
+  makeSortParams = (sorter) => {
+    const directions = {
+      ascend: 'asc',
+      descend: 'desc',
+    };
+    if(sorter.field){
+      return {
+        'sort_type': sorter.field === 'element' ? 'label' : '',
+        'sort_direction': directions[sorter.order]
+      }
+    } else {
+      return {};
+    }
   };
 
   handleTableChange = (pagination, filters, sorter) => {
@@ -59,19 +64,18 @@ class FeaturesTable extends React.Component {
     pager.current = pagination.current;
     this.setState({
       pagination: pager,
+      sort: sorter.order
     });
     this.fetch({
       results: pagination.pageSize,
       search: this.props.searchText,
       'page[number]': pagination.current,
-      sortField: sorter.field,
-      sortOrder: sorter.order,
+      ...this.makeSortParams(sorter),
       ...filters,
     });
   };
 
   fetch = (params = {}) => {
-    console.log(params);
     this.setState({ loading: true });
     getData(params).then(data => data.data).then(data => {
       const pagination = { ...this.state.pagination };
@@ -84,17 +88,35 @@ class FeaturesTable extends React.Component {
         data: oneToOneJoinData(data),
         pagination
       });
+    }).catch(e => {
+      message.error('get data error');
     });
   };
 
   render() {
-    console.log('rendered');
+    const columns = [
+      {
+        title: 'Art',
+        dataIndex: 'id',
+        render: (record, row) => row.element.type,
+        width: '10%',
+      },
+      {
+        title: 'Name',
+        dataIndex: 'element',
+        render: record => record.attributes.label,
+        sorter: true,
+        sortOrder: this.state.sort,
+        width: '20%',
+      }
+    ];
+
     return (
       <div className="total-entries">
         {this.state.totalEntries} rows found
         <Table
           columns={columns}
-          rowKey={record => Math.floor(Math.random() * 10000) + 1}
+          rowKey={record => record.id}
           dataSource={this.state.data}
           pagination={this.state.pagination}
           loading={this.state.loading}
