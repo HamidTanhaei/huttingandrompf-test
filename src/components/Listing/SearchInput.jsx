@@ -1,6 +1,6 @@
 import React from 'react';
 import {Input} from 'antd';
-import {setText, removeText} from '../../../redux/filter/action';
+import {setText, removeText} from '../../redux/filter/action';
 import {connect} from 'react-redux';
 
 const SearchInput = (props) => {
