@@ -1,0 +1,20 @@
+.main-header{
+  padding: 15px;
+  background: #086ecc;
+  display:flex;
+  .logo-area{
+    width:20%;
+    font-size:18px;
+    color:#fff;
+    font-weight: bold;
+  }
+  .add{
+    text-align:right;
+    width:20%;
+    color:#fff;
+    font-size:20px;
+  }
+  .search{
+    width:60%;
+  }
+}

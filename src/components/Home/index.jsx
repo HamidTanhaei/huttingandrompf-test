@@ -1,11 +1,12 @@
 import React from 'react';
+import FeaturesTable from './FeaturesTable';
 
 const Home = (props) => {
   return (
     <div>
       <div className="wrapper">
-        Welcome Home
-      </div>
+        <FeaturesTable />
+        </div>
     </div>
   );
 };

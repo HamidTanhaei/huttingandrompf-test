@@ -9,6 +9,8 @@ import Home from './components/Home';
 import {browserRoutes} from './consts/browserRoutes';
 
 
+axios.defaults.baseURL = `${process.env.REACT_APP_API_BASE_PATH}`;
+
 const Routes = (props) => {
   return (
     <Template>
