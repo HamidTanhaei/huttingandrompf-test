@@ -11,11 +11,12 @@ const SearchInput = (props) => {
       props.removeSearchText();
     }
   };
+  const urlParams = new URLSearchParams(window.location.search);
 
   return (
     <div>
       <Input.Search
-        defaultValue={props.searchText}
+        defaultValue={urlParams.has('search') ? urlParams.get('search') : ''}
         size={'large'}
         onSearch={onSearch}
       />
