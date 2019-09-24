@@ -1,25 +1,34 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Table, message } from 'antd';
 import {connect} from 'react-redux';
 import {oneToOneJoinData} from '../../../utils/joinRestData';
 import {getData} from '../../../services/api';
 import {setText} from '../../../redux/filter/action';
+import {
+  makeFetchParamsFromQueryParams,
+  makeQueryStringFromFetchParams, makeSortParams,
+  sortNameMapToTable
+} from './utils';
 
 class FeaturesTable extends React.Component {
   constructor(props){
     super(props);
+
+    const defaultParams = makeFetchParamsFromQueryParams();
+
     this.state = {
       data: [],
-      pagination: {},
+      pagination: defaultParams['page[number]'] ? {current: parseInt(defaultParams['page[number]'])} : {},
       loading: false,
       totalEntries: 0,
-      sort: ''
+      sort: defaultParams['sort_direction'] ? sortNameMapToTable[defaultParams['sort_direction']] : ''
     };
   };
 
   componentDidMount() {
     this.fetch({
-      search: this.props.searchText,
+      ...makeFetchParamsFromQueryParams()
     });
   }
 
@@ -37,26 +46,14 @@ class FeaturesTable extends React.Component {
       sort: ''
     }, () => {
       // fetch data by searched text
-      this.fetch({
-        search: this.props.searchText,
+      const apiParams = {
         'page[number]': this.state.pagination.current
-      });
-    });
-  };
-
-  makeSortParams = (sorter) => {
-    const directions = {
-      ascend: 'asc',
-      descend: 'desc',
-    };
-    if(sorter.field){
-      return {
-        'sort_type': sorter.field === 'element' ? 'label' : '',
-        'sort_direction': directions[sorter.order]
+      };
+      if(this.props.searchText){
+        apiParams.search = this.props.searchText;
       }
-    } else {
-      return {};
-    }
+      this.fetch(apiParams);
+    });
   };
 
   handleTableChange = (pagination, filters, sorter) => {
@@ -66,16 +63,23 @@ class FeaturesTable extends React.Component {
       pagination: pager,
       sort: sorter.order
     });
-    this.fetch({
-      results: pagination.pageSize,
-      search: this.props.searchText,
+    const apiParams = {
       'page[number]': pagination.current,
-      ...this.makeSortParams(sorter),
+      ...makeSortParams(sorter),
       ...filters,
-    });
+    };
+    if(this.props.searchText){
+      apiParams.search = this.props.searchText;
+    }
+    this.fetch(apiParams);
+  };
+
+  updateLocation = (params) => {
+    this.props.history.push(makeQueryStringFromFetchParams(params));
   };
 
   fetch = (params = {}) => {
+    this.updateLocation(params);
     this.setState({ loading: true });
     getData(params).then(data => data.data).then(data => {
       const pagination = { ...this.state.pagination };
@@ -139,4 +143,4 @@ export const mapDispatchToProps = (dispatch) => {
   }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FeaturesTable);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(FeaturesTable));
