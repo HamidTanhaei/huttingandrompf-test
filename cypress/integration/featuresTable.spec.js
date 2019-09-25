@@ -108,4 +108,24 @@ describe('Sort Change', () => {
     cy.wait(300);
     cy.url().should('eq', Cypress.env('host') + browserRoutes.listing + '?page[number]=1');
   });
+
+  it.only('Should fetch based on browser location', () => {
+    cy.visit(Cypress.env('host') + browserRoutes.listing + '?page[number]=1&sort_type=label&sort_direction=asc');
+    cy.get('.features-table .ant-spin-nested-loading .ant-spin-spinning').should('not.exist' );
+    cy.wait(300);
+    cy.get('.features-table tbody tr:first-child td:last-child').invoke('text').then((text => {
+      cy.request({
+        url: Cypress.env('api_server') + '/rights_and_roles_elements',
+        qs: {
+          'page[size]': 10,
+          'page[number]': 1,
+          sort_type: 'label',
+          sort_direction: 'asc'
+        }
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(oneToOneJoinData(response.body)[0]['element']['attributes']['label']).to.eq(text);
+      });
+    }));
+  });
 });
