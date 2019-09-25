@@ -1,0 +1,26 @@
+import {oneToOneJoinData} from '../../src/utils/joinRestData'
+it('Should fetch by searched text', () => {
+  cy.visit('/');
+  const text = 'be';
+  cy.get('.main-header .search input')
+    .type(text)
+    .should('have.value', text);
+
+  cy.get('.main-header .search .ant-input-suffix i svg').click();
+
+  cy.get('.features-table .ant-spin-nested-loading .ant-spin-spinning').should('not.exist' );
+
+  cy.wait(300);
+
+  cy.get('.features-table tbody tr:first-child td:last-child').invoke('text').then((text => {
+    cy.request({
+      url: Cypress.env('api_server') + '/rights_and_roles_elements',
+      qs: {
+        search: text
+      }
+    }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(oneToOneJoinData(response.body)[0]['element']['attributes']['label']).to.eq(text);
+      });
+  }));
+});

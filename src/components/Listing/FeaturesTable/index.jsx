@@ -119,6 +119,7 @@ class FeaturesTable extends React.Component {
       <div className="total-entries">
         {this.state.totalEntries} rows found
         <Table
+          className='features-table'
           columns={columns}
           rowKey={record => record.id}
           dataSource={this.state.data}
