@@ -78,6 +78,12 @@ class FeaturesTable extends React.Component {
     this.props.history.push(makeQueryStringFromFetchParams(params));
   };
 
+  totalRows = (props) => (
+    <div className="total-entries">
+      <span>{props.totalEntries}</span> rows found
+    </div>
+  );
+
   fetch = (params = {}) => {
     this.updateLocation(params);
     this.setState({ loading: true });
@@ -115,9 +121,11 @@ class FeaturesTable extends React.Component {
       }
     ];
 
+    const TotalRows = this.totalRows;
+
     return (
-      <div className="total-entries">
-        {this.state.totalEntries} rows found
+      <>
+        <TotalRows totalEntries={this.state.totalEntries} />
         <Table
           className='features-table'
           columns={columns}
@@ -127,7 +135,7 @@ class FeaturesTable extends React.Component {
           loading={this.state.loading}
           onChange={this.handleTableChange}
         />
-      </div>
+      </>
     );
   }
 }

@@ -20,6 +20,8 @@ export const makeFetchParamsFromQueryParams = () => {
       case 'page[number]':
         if(value) dataToFetch['page[number]'] = value;
         break;
+      default:
+        break;
     }
   }
   return dataToFetch;
