@@ -1,0 +1,10 @@
+{
+    "extends": "react-app",
+    "rules": {
+      "quotes": [2, "single", "avoid-escape"],
+      "no-useless-constructor": "error",
+      "indent": [2,2],
+      "no-unused-vars": "error",
+      "space-in-parens": ["error", "never"]
+    }
+  }

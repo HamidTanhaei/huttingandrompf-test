@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../Template/Header';
-import {Icon} from 'antd';
+import {Alert, Icon} from 'antd';
 import './style.scss';
 
 const Feature = (props) => {
@@ -13,7 +13,7 @@ const Feature = (props) => {
       </Header>
       <div className='wrapper'>
         <div className='hello'>
-          Hello, Im Feature Page
+          <Alert message="Hello i'm Feature page" type="success" />
         </div>
       </div>
     </div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { Table, message } from 'antd';
+import {Table, message, Alert} from 'antd';
 import {connect} from 'react-redux';
+import TotalRows from '../TotalRows';
 import {oneToOneJoinData} from '../../../utils/joinRestData';
 import {getData} from '../../../services/api';
 import {setText} from '../../../redux/filter/action';
@@ -15,20 +16,20 @@ class FeaturesTable extends React.Component {
   constructor(props){
     super(props);
 
-    const defaultParams = makeFetchParamsFromQueryParams();
+    this.defaultTableParams = makeFetchParamsFromQueryParams();
 
     this.state = {
       data: [],
-      pagination: defaultParams['page[number]'] ? {current: parseInt(defaultParams['page[number]'])} : {},
+      pagination: this.defaultTableParams['page[number]'] ? {current: parseInt(this.defaultTableParams['page[number]'])} : {},
       loading: false,
       totalEntries: 0,
-      sort: defaultParams['sort_direction'] ? sortNameMapToTable[defaultParams['sort_direction']] : ''
+      sort: this.defaultTableParams['sort_direction'] ? sortNameMapToTable[this.defaultTableParams['sort_direction']] : ''
     };
   };
 
   componentDidMount() {
     this.fetch({
-      ...makeFetchParamsFromQueryParams()
+      ...this.defaultTableParams
     });
   }
 
@@ -40,20 +41,24 @@ class FeaturesTable extends React.Component {
   }
 
   searchForText = () => {
-    //reset component pagination
-    this.setState({
-      pagination: {current: 1},
-      sort: ''
-    }, () => {
+    const onResetTableState = () => {
       // fetch data by searched text
       const apiParams = {
         'page[number]': this.state.pagination.current
       };
+
+      //check for empty or undefined text
       if(this.props.searchText){
         apiParams.search = this.props.searchText;
-      }
+      };
       this.fetch(apiParams);
-    });
+    };
+
+    //reset table default params
+    this.setState({
+      pagination: {current: 1},
+      sort: ''
+    }, onResetTableState);
   };
 
   handleTableChange = (pagination, filters, sorter) => {
@@ -78,19 +83,11 @@ class FeaturesTable extends React.Component {
     this.props.history.push(makeQueryStringFromFetchParams(params));
   };
 
-  totalRows = (props) => (
-    <div className="total-entries">
-      <span>{props.totalEntries}</span> rows found
-    </div>
-  );
-
   fetch = (params = {}) => {
     this.updateLocation(params);
     this.setState({ loading: true });
     getData(params).then(data => data.data).then(data => {
       const pagination = { ...this.state.pagination };
-      // Read total count from server
-      // pagination.total = data.totalCount;
       pagination.total = data.meta.total_entries;
       this.setState({
         totalEntries: data.meta.total_entries,
@@ -100,6 +97,7 @@ class FeaturesTable extends React.Component {
       });
     }).catch(e => {
       message.error('get data error');
+      this.setState({fetchError: true});
     });
   };
 
@@ -121,21 +119,26 @@ class FeaturesTable extends React.Component {
       }
     ];
 
-    const TotalRows = this.totalRows;
-
     return (
-      <>
-        <TotalRows totalEntries={this.state.totalEntries} />
-        <Table
-          className='features-table'
-          columns={columns}
-          rowKey={record => record.id}
-          dataSource={this.state.data}
-          pagination={this.state.pagination}
-          loading={this.state.loading}
-          onChange={this.handleTableChange}
-        />
-      </>
+      !this.state.fetchError ? (
+        <>
+          <TotalRows totalEntries={this.state.totalEntries} />
+          <Table
+            className='features-table'
+            columns={columns}
+            rowKey={record => record.id}
+            dataSource={this.state.data}
+            pagination={this.state.pagination}
+            loading={this.state.loading}
+            onChange={this.handleTableChange}
+          />
+        </>
+      ) : <Alert
+        message="Fetch Data Error"
+        description="Unfortunately we could not get data from server"
+        type="error"
+        showIcon
+      />
     );
   }
 }

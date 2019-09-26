@@ -6,22 +6,22 @@ export const makeFetchParamsFromQueryParams = () => {
   const params = urlParams.entries();
   for(const [param, value] of params) {
     switch (param) {
-      case 'search':
-        dataToFetch.search = value;
-        break;
-      case 'sort_direction':
-        // todo handle anomaly sort type
-        dataToFetch.sort_direction = value;
-        break;
-      case 'sort_type':
-        // todo handle anomaly sort type
-        dataToFetch.sort_type = value;
-        break;
-      case 'page[number]':
-        if(value) dataToFetch['page[number]'] = value;
-        break;
-      default:
-        break;
+    case 'search':
+      dataToFetch.search = value;
+      break;
+    case 'sort_direction':
+      // todo handle anomaly sort type
+      dataToFetch.sort_direction = value;
+      break;
+    case 'sort_type':
+      // todo handle anomaly sort type
+      dataToFetch.sort_type = value;
+      break;
+    case 'page[number]':
+      if(value) dataToFetch['page[number]'] = value;
+      break;
+    default:
+      break;
     }
   }
   return dataToFetch;
