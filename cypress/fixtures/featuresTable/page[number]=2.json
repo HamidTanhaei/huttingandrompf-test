@@ -1,0 +1,250 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "6",
+            "type": "authorization_roles"
+          }
+        }
+      }
+    },
+    {
+      "id": "2",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "6",
+            "type": "authorization_features"
+          }
+        }
+      }
+    },
+    {
+      "id": "3",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "7",
+            "type": "authorization_features"
+          }
+        }
+      }
+    },
+    {
+      "id": "4",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "7",
+            "type": "authorization_roles"
+          }
+        }
+      }
+    },
+    {
+      "id": "5",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "8",
+            "type": "authorization_roles"
+          }
+        }
+      }
+    },
+    {
+      "id": "6",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "8",
+            "type": "authorization_features"
+          }
+        }
+      }
+    },
+    {
+      "id": "7",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "9",
+            "type": "authorization_features"
+          }
+        }
+      }
+    },
+    {
+      "id": "8",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "9",
+            "type": "authorization_roles"
+          }
+        }
+      }
+    },
+    {
+      "id": "9",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "10",
+            "type": "authorization_roles"
+          }
+        }
+      }
+    },
+    {
+      "id": "10",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "10",
+            "type": "authorization_features"
+          }
+        }
+      }
+    }],
+  "included": [
+    {
+      "id": "6",
+      "type": "authorization_roles",
+      "attributes":
+      {
+        "label": "Mocked Data Page 2"
+      }
+    },
+    {
+      "id": "6",
+      "type": "authorization_features",
+      "attributes":
+      {
+        "label": "Afghan Hound"
+      }
+    },
+    {
+      "id": "7",
+      "type": "authorization_features",
+      "attributes":
+      {
+        "label": "Chow"
+      }
+    },
+    {
+      "id": "7",
+      "type": "authorization_roles",
+      "attributes":
+      {
+        "label": "Bombay"
+      }
+    },
+    {
+      "id": "8",
+      "type": "authorization_roles",
+      "attributes":
+      {
+        "label": "British Shorthair"
+      }
+    },
+    {
+      "id": "8",
+      "type": "authorization_features",
+      "attributes":
+      {
+        "label": "Irish Spaniel"
+      }
+    },
+    {
+      "id": "9",
+      "type": "authorization_features",
+      "attributes":
+      {
+        "label": "Stbernard"
+      }
+    },
+    {
+      "id": "9",
+      "type": "authorization_roles",
+      "attributes":
+      {
+        "label": "Napoleon"
+      }
+    },
+    {
+      "id": "10",
+      "type": "authorization_roles",
+      "attributes":
+      {
+        "label": "Peterbald"
+      }
+    },
+    {
+      "id": "10",
+      "type": "authorization_features",
+      "attributes":
+      {
+        "label": "Lakeland Terrier"
+      }
+    }],
+  "links":
+  {
+    "self": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=2&page%5Bsize%5D=10",
+    "first": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "prev": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=1&page%5Bsize%5D=10",
+    "next": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=3&page%5Bsize%5D=10",
+    "last": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=14&page%5Bsize%5D=10"
+  },
+  "meta":
+  {
+    "current_page": 2,
+    "next_page": 3,
+    "prev_page": 1,
+    "total_pages": 14,
+    "total_entries": 133
+  }
+}

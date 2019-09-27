@@ -1,0 +1,188 @@
+{
+  "data": [{
+    "id": "1",
+    "type": "authorization_rights_and_roles_elements",
+    "relationships": {
+      "element": {
+        "data": {
+          "id": "1",
+          "type": "authorization_features"
+        }
+      }
+    }
+  }, {
+    "id": "2",
+    "type": "authorization_rights_and_roles_elements",
+    "relationships": {
+      "element": {
+        "data": {
+          "id": "1",
+          "type": "authorization_roles"
+        }
+      }
+    }
+  }, {
+    "id": "3",
+    "type": "authorization_rights_and_roles_elements",
+    "relationships": {
+      "element": {
+        "data": {
+          "id": "2",
+          "type": "authorization_roles"
+        }
+      }
+    }
+  }, {
+    "id": "4",
+    "type": "authorization_rights_and_roles_elements",
+    "relationships": {
+      "element": {
+        "data": {
+          "id": "2",
+          "type": "authorization_features"
+        }
+      }
+    }
+  }, {
+    "id": "5",
+    "type": "authorization_rights_and_roles_elements",
+    "relationships": {
+      "element": {
+        "data": {
+          "id": "3",
+          "type": "authorization_features"
+        }
+      }
+    }
+  }, {
+    "id": "6",
+    "type": "authorization_rights_and_roles_elements",
+    "relationships": {
+      "element": {
+        "data": {
+          "id": "3",
+          "type": "authorization_roles"
+        }
+      }
+    }
+  }, {
+    "id": "7",
+    "type": "authorization_rights_and_roles_elements",
+    "relationships": {
+      "element": {
+        "data": {
+          "id": "4",
+          "type": "authorization_roles"
+        }
+      }
+    }
+  }, {
+    "id": "8",
+    "type": "authorization_rights_and_roles_elements",
+    "relationships": {
+      "element": {
+        "data": {
+          "id": "4",
+          "type": "authorization_features"
+        }
+      }
+    }
+  }, {
+    "id": "9",
+    "type": "authorization_rights_and_roles_elements",
+    "relationships": {
+      "element": {
+        "data": {
+          "id": "5",
+          "type": "authorization_features"
+        }
+      }
+    }
+  }, {
+    "id": "10",
+    "type": "authorization_rights_and_roles_elements",
+    "relationships": {
+      "element": {
+        "data": {
+          "id": "5",
+          "type": "authorization_roles"
+        }
+      }
+    }
+  }],
+  "included": [{
+    "id": "1",
+    "type": "authorization_features",
+    "attributes": {
+      "label": "Salukiiiii"
+    }
+  }, {
+    "id": "1",
+    "type": "authorization_roles",
+    "attributes": {
+      "label": "Lykoi"
+    }
+  }, {
+    "id": "2",
+    "type": "authorization_roles",
+    "attributes": {
+      "label": "Persian (Traditional Persian Cat)"
+    }
+  }, {
+    "id": "2",
+    "type": "authorization_features",
+    "attributes": {
+      "label": "Toy Poodle"
+    }
+  }, {
+    "id": "3",
+    "type": "authorization_features",
+    "attributes": {
+      "label": "Pug"
+    }
+  }, {
+    "id": "3",
+    "type": "authorization_roles",
+    "attributes": {
+      "label": "Cornish Rex"
+    }
+  }, {
+    "id": "4",
+    "type": "authorization_roles",
+    "attributes": {
+      "label": "Highlander"
+    }
+  }, {
+    "id": "4",
+    "type": "authorization_features",
+    "attributes": {
+      "label": "Vizsla"
+    }
+  }, {
+    "id": "5",
+    "type": "authorization_features",
+    "attributes": {
+      "label": "Shiba"
+    }
+  }, {
+    "id": "5",
+    "type": "authorization_roles",
+    "attributes": {
+      "label": "Pixie-bob"
+    }
+  }],
+  "links": {
+    "self": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=1\u0026page%5Bsize%5D=10",
+    "first": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=1\u0026page%5Bsize%5D=10",
+    "prev": null,
+    "next": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=2\u0026page%5Bsize%5D=10",
+    "last": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=14\u0026page%5Bsize%5D=10"
+  },
+  "meta": {
+    "current_page": 1,
+    "next_page": 2,
+    "prev_page": null,
+    "total_pages": 14,
+    "total_entries": 133
+  }
+}
