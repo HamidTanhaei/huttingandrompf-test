@@ -1,0 +1,250 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "19",
+            "type": "authorization_features"
+          }
+        }
+      }
+    },
+    {
+      "id": "2",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "45",
+            "type": "authorization_features"
+          }
+        }
+      }
+    },
+    {
+      "id": "3",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "57",
+            "type": "authorization_features"
+          }
+        }
+      }
+    },
+    {
+      "id": "4",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "41",
+            "type": "authorization_features"
+          }
+        }
+      }
+    },
+    {
+      "id": "5",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "4",
+            "type": "authorization_features"
+          }
+        }
+      }
+    },
+    {
+      "id": "6",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "20",
+            "type": "authorization_roles"
+          }
+        }
+      }
+    },
+    {
+      "id": "7",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "2",
+            "type": "authorization_features"
+          }
+        }
+      }
+    },
+    {
+      "id": "8",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "30",
+            "type": "authorization_roles"
+          }
+        }
+      }
+    },
+    {
+      "id": "9",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "58",
+            "type": "authorization_roles"
+          }
+        }
+      }
+    },
+    {
+      "id": "10",
+      "type": "authorization_rights_and_roles_elements",
+      "relationships":
+      {
+        "element":
+        {
+          "data":
+          {
+            "id": "11",
+            "type": "authorization_roles"
+          }
+        }
+      }
+    }],
+  "included": [
+    {
+      "id": "19",
+      "type": "authorization_features",
+      "attributes":
+      {
+        "label": "Yorkshire Terrier"
+      }
+    },
+    {
+      "id": "45",
+      "type": "authorization_features",
+      "attributes":
+      {
+        "label": "Whippet"
+      }
+    },
+    {
+      "id": "57",
+      "type": "authorization_features",
+      "attributes":
+      {
+        "label": "Welsh Spaniel"
+      }
+    },
+    {
+      "id": "41",
+      "type": "authorization_features",
+      "attributes":
+      {
+        "label": "Weimaraner"
+      }
+    },
+    {
+      "id": "4",
+      "type": "authorization_features",
+      "attributes":
+      {
+        "label": "Vizsla"
+      }
+    },
+    {
+      "id": "20",
+      "type": "authorization_roles",
+      "attributes":
+      {
+        "label": "Turkish Van"
+      }
+    },
+    {
+      "id": "2",
+      "type": "authorization_features",
+      "attributes":
+      {
+        "label": "Toy Poodle"
+      }
+    },
+    {
+      "id": "30",
+      "type": "authorization_roles",
+      "attributes":
+      {
+        "label": "Toyger"
+      }
+    },
+    {
+      "id": "58",
+      "type": "authorization_roles",
+      "attributes":
+      {
+        "label": "Toyger"
+      }
+    },
+    {
+      "id": "11",
+      "type": "authorization_roles",
+      "attributes":
+      {
+        "label": "Tonkinese"
+      }
+    }],
+  "links":
+  {
+    "self": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=1&page%5Bsize%5D=10&sort_direction=desc&sort_type=label",
+    "first": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=1&page%5Bsize%5D=10&sort_direction=desc&sort_type=label",
+    "prev": null,
+    "next": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=2&page%5Bsize%5D=10&sort_direction=desc&sort_type=label",
+    "last": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=14&page%5Bsize%5D=10&sort_direction=desc&sort_type=label"
+  },
+  "meta":
+  {
+    "current_page": 1,
+    "next_page": 2,
+    "prev_page": null,
+    "total_pages": 14,
+    "total_entries": 133
+  }
+}

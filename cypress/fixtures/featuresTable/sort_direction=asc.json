@@ -1,0 +1,250 @@
+{
+	"data": [
+	{
+		"id": "1",
+		"type": "authorization_rights_and_roles_elements",
+		"relationships":
+		{
+			"element":
+			{
+				"data":
+				{
+					"id": "26",
+					"type": "authorization_roles"
+				}
+			}
+		}
+	},
+	{
+		"id": "2",
+		"type": "authorization_rights_and_roles_elements",
+		"relationships":
+		{
+			"element":
+			{
+				"data":
+				{
+					"id": "34",
+					"type": "authorization_roles"
+				}
+			}
+		}
+	},
+	{
+		"id": "3",
+		"type": "authorization_rights_and_roles_elements",
+		"relationships":
+		{
+			"element":
+			{
+				"data":
+				{
+					"id": "49",
+					"type": "authorization_features"
+				}
+			}
+		}
+	},
+	{
+		"id": "4",
+		"type": "authorization_rights_and_roles_elements",
+		"relationships":
+		{
+			"element":
+			{
+				"data":
+				{
+					"id": "6",
+					"type": "authorization_features"
+				}
+			}
+		}
+	},
+	{
+		"id": "5",
+		"type": "authorization_rights_and_roles_elements",
+		"relationships":
+		{
+			"element":
+			{
+				"data":
+				{
+					"id": "26",
+					"type": "authorization_features"
+				}
+			}
+		}
+	},
+	{
+		"id": "6",
+		"type": "authorization_rights_and_roles_elements",
+		"relationships":
+		{
+			"element":
+			{
+				"data":
+				{
+					"id": "47",
+					"type": "authorization_roles"
+				}
+			}
+		}
+	},
+	{
+		"id": "7",
+		"type": "authorization_rights_and_roles_elements",
+		"relationships":
+		{
+			"element":
+			{
+				"data":
+				{
+					"id": "54",
+					"type": "authorization_roles"
+				}
+			}
+		}
+	},
+	{
+		"id": "8",
+		"type": "authorization_rights_and_roles_elements",
+		"relationships":
+		{
+			"element":
+			{
+				"data":
+				{
+					"id": "22",
+					"type": "authorization_features"
+				}
+			}
+		}
+	},
+	{
+		"id": "9",
+		"type": "authorization_rights_and_roles_elements",
+		"relationships":
+		{
+			"element":
+			{
+				"data":
+				{
+					"id": "66",
+					"type": "authorization_features"
+				}
+			}
+		}
+	},
+	{
+		"id": "10",
+		"type": "authorization_rights_and_roles_elements",
+		"relationships":
+		{
+			"element":
+			{
+				"data":
+				{
+					"id": "42",
+					"type": "authorization_roles"
+				}
+			}
+		}
+	}],
+	"included": [
+	{
+		"id": "26",
+		"type": "authorization_roles",
+		"attributes":
+		{
+			"label": "Abyssinian"
+		}
+	},
+	{
+		"id": "34",
+		"type": "authorization_roles",
+		"attributes":
+		{
+			"label": "Aegean"
+		}
+	},
+	{
+		"id": "49",
+		"type": "authorization_features",
+		"attributes":
+		{
+			"label": "Affenpinscher"
+		}
+	},
+	{
+		"id": "6",
+		"type": "authorization_features",
+		"attributes":
+		{
+			"label": "Afghan Hound"
+		}
+	},
+	{
+		"id": "26",
+		"type": "authorization_features",
+		"attributes":
+		{
+			"label": "Airedale"
+		}
+	},
+	{
+		"id": "47",
+		"type": "authorization_roles",
+		"attributes":
+		{
+			"label": "American Bobtail"
+		}
+	},
+	{
+		"id": "54",
+		"type": "authorization_roles",
+		"attributes":
+		{
+			"label": "American Curl"
+		}
+	},
+	{
+		"id": "22",
+		"type": "authorization_features",
+		"attributes":
+		{
+			"label": "American Terrier"
+		}
+	},
+	{
+		"id": "66",
+		"type": "authorization_features",
+		"attributes":
+		{
+			"label": "Appenzeller"
+		}
+	},
+	{
+		"id": "42",
+		"type": "authorization_roles",
+		"attributes":
+		{
+			"label": "Arabian Mau"
+		}
+	}],
+	"links":
+	{
+		"self": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=1&page%5Bsize%5D=10&sort_direction=asc&sort_type=label",
+		"first": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=1&page%5Bsize%5D=10&sort_direction=asc&sort_type=label",
+		"prev": null,
+		"next": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=2&page%5Bsize%5D=10&sort_direction=asc&sort_type=label",
+		"last": "https://hur-pages-api.herokuapp.com/api/authorization/rights_and_roles_elements?page%5Bnumber%5D=14&page%5Bsize%5D=10&sort_direction=asc&sort_type=label"
+	},
+	"meta":
+	{
+		"current_page": 1,
+		"next_page": 2,
+		"prev_page": null,
+		"total_pages": 14,
+		"total_entries": 133
+	}
+}
